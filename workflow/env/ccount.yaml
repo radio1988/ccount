@@ -1,4 +1,4 @@
-name: ccount-env
+name: ccount
 # conda env create -f ccount.yaml
 # pip install aicspylibczi
 # don't change version of packages untill necessary

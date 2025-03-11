@@ -15,8 +15,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 from pyimagesearch.cnn.networks.lenet import LeNet
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import to_categorical
+import tensorflow as tf
+#from tensorflow.keras.optimizers import Adam
 
 
 def parse_cmd_and_prep ():
@@ -89,7 +89,8 @@ print("min pixel value: ", np.min(images))
 # Initialize the optimizer and model
 # todo: feature normalization (optional)
 print("Compiling model...")
-opt = Adam(learning_rate=config['learning_rate'])
+#opt = Adam(learning_rate=config['learning_rate'])
+opt = tf.keras.optimizers.Adam(learning_rate=config['learning_rate'])
 model = LeNet.build(numChannels=1, imgRows=2*w, imgCols=2*w, numClasses=config['numClasses'],
                     weightsPath=args.weight)
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=[F1])
